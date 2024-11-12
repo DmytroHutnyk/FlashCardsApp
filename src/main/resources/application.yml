@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: TPO_02
+
+hutnyk:
+  tpo_02:
+    filename: "dictionary.csv"
