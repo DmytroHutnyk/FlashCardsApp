@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 @Repository
-public class EntryRepository {
+public class EntryRepository implements IEntryRepository{
     private List<IEntry> entries;
 
     @Value("${hutnyk.tpo_02.filename}")
