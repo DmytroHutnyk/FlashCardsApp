@@ -39,6 +39,22 @@ public class BasicEntry implements IEntry {
         polish = translations.get("polish");
     }
 
+    public boolean isBasic(){
+        return true;
+    }
+
+    public String getEnglish() {
+        return english;
+    }
+
+    public String getGerman() {
+        return german;
+    }
+
+    public String getPolish() {
+        return polish;
+    }
+
     public String toString(){
         return "english: " + english + " german: " + german + " polish: " + polish;
     }

@@ -9,4 +9,9 @@ public interface IEntry {
     Map<String, String> getTranslations();
 
     void setTranslations(Map<String, String> translations);
+
+    boolean isBasic();
+
+    String getEnglish();
+
 }
