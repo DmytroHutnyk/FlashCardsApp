@@ -30,7 +30,6 @@ public class EntryRepository implements IEntryRepository {
 
     @PostConstruct
     public void init() {
-        System.out.println("Filename: " + filename); // Check if filename is now correctly injected
         entries = service.readFile(filename);
     }
 
