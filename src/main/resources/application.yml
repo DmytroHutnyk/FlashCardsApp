@@ -4,4 +4,4 @@ spring:
 
 hutnyk:
   tpo_02:
-    filename: "dictionary.csv"
+    filename: "dictionary.txt"
