@@ -1,6 +1,8 @@
 spring:
   application:
     name: TPO_02
+  profiles:
+    active: LowerCase
 
 hutnyk:
   tpo_02:
