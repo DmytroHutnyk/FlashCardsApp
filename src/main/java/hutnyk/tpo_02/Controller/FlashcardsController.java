@@ -5,6 +5,8 @@ import hutnyk.tpo_02.Model.IEntry;
 import hutnyk.tpo_02.Model.IEntryFactory;
 import hutnyk.tpo_02.Repository.IEntryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 
 import java.util.InputMismatchException;
@@ -14,14 +16,15 @@ import java.util.Scanner;
 @Controller
 public class FlashcardsController {
 
-    IEntryRepository entryRepository;
-    IEntryFactory entryFactory;
-
+    private final IEntryRepository entryRepository;
+    private final IEntryFactory entryFactory;
+    private final ApplicationContext context;
 
     @Autowired
-    public FlashcardsController(IEntryRepository entryRepository, IEntryFactory entryFactory){
+    public FlashcardsController(IEntryRepository entryRepository, IEntryFactory entryFactory, ApplicationContext context){
         this.entryRepository = entryRepository;
         this.entryFactory = entryFactory;
+        this.context = context;
     }
 
     public void startApplication(){
@@ -30,7 +33,8 @@ public class FlashcardsController {
             System.out.println("Select an option: \n" +
                     "1. Display whole dictionary \n" +
                     "2. Add new word \n" +
-                    "3. Play a quiz \n");
+                    "3. Play a quiz \n" +
+                    "4. Exit application");
 
             int option = scanInt();
             Scanner scanner = new Scanner(System.in);
@@ -39,6 +43,7 @@ public class FlashcardsController {
                 case 1:
                     entryRepository.displayDictionary();
                     break;
+
                 case 2:
                     System.out.println("If the word exists, do you want to override it? \n" +
                             "1. Yes \n" +
@@ -81,14 +86,15 @@ public class FlashcardsController {
                         }
                     }
                     break;
+
                 case 4:
                     isRunning = false;
                     System.out.println("Exiting application...");
+                    SpringApplication.exit(context, () -> 0);
                     break;
                 default:
                     System.out.println("Invalid option");
                     break;
-
             }
         }
     }
@@ -103,5 +109,4 @@ public class FlashcardsController {
         }
         return result;
     }
-
 }
