@@ -6,6 +6,7 @@ import hutnyk.tpo_02.Service.Printer.IPrinter;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -32,8 +33,6 @@ public class EntryRepository implements IEntryRepository {
     public void init() {
         entries = service.readFile(filename);
     }
-
-
 
     public String addWord(IEntry entry, boolean override) throws IllegalArgumentException{
         if (entry.isBasic() != entries.getFirst().isBasic()) {

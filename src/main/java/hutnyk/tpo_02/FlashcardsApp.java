@@ -12,9 +12,5 @@ public class FlashcardsApp {
         ConfigurableApplicationContext context = SpringApplication.run(FlashcardsApp.class, args);
         FlashcardsController controller = context.getBean(FlashcardsController.class);
         controller.startApplication();
-
-
-
-
     }
 }
