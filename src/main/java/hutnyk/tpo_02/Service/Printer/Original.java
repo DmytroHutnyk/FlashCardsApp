@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 @Service
-@Profile("UpperCase")
+@Profile("Original")
 public class Original implements IPrinter{
 
     public void printDictionary(List<IEntry> entries) {
