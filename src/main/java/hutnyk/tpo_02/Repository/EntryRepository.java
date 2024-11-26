@@ -70,7 +70,6 @@ public class EntryRepository implements IEntryRepository {
         printer.printDictionary(entries);
     }
 
-    // is available only for BasicEntry
     public IEntry generateQuiz() {
         int randomIndex = random.nextInt(entries.size());
         return entries.get(randomIndex);

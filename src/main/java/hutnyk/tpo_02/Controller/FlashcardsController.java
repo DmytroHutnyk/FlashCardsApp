@@ -62,7 +62,7 @@ public class FlashcardsController {
                         String polish = scanner.next();
                         String result = entryRepository.addWord(entryFactory.createEntry(english, german, polish), (override == 1));
                         System.out.println(result);
-                    }// add other implementation if needed
+                    }
                     break;
 
                 case 3:

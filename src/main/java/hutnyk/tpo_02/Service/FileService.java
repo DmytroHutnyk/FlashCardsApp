@@ -29,8 +29,8 @@ public class FileService implements IReadWriteService {
    }
 
     public void writeFile(String filename, List<IEntry> data) {
-        File file = new File(filename);  // Use the filename directly
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {  // FileWriter for write access
+        File file = new File(filename);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
             for (IEntry entry : data) {
                 StringBuilder line = new StringBuilder();
 
@@ -40,10 +40,10 @@ public class FileService implements IReadWriteService {
                 }
 
                 if (line.length() > 0) {
-                    line.setLength(line.length() - 1); // Remove the trailing semicolon
+                    line.setLength(line.length() - 1);
                 }
                 writer.write(line.toString());
-                writer.newLine(); //May be a problem
+                writer.newLine();
             }
         } catch (IOException e) {
             e.printStackTrace();
