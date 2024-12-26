@@ -6,7 +6,7 @@ spring:
   datasource:
     url: jdbc:h2:file:./data/MyTryDB
     username: sa
-    password: haslo
+    password:
   h2:
     console:
       path: /my-h2-db
