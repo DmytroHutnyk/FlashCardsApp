@@ -2,11 +2,15 @@ package hutnyk.tpo_02.Repository;
 
 import hutnyk.tpo_02.Model.IEntry;
 
+import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public interface IEntryRepository {
-    String addWord(IEntry entry, boolean override);
-    void displayDictionary();
-    IEntry generateQuiz();
-    boolean isBasic();
+    void addEntry(IEntry entry);
+    <T extends IEntry> List<T> findAllEntries(Class<T> entityClass);
+//    boolean deleteEntryByEnglish(String english);
+    Optional<IEntry> findEntryByEnglish(String english);
+    void updateEntry(IEntry entry);
+    int deleteEntry(String englishWord);
 }

@@ -1,16 +1,22 @@
 package hutnyk.tpo_02.Model;
 
-import java.util.ArrayList;
+import jakarta.persistence.*;
+
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-public class BasicEntry implements IEntry {
 
+@Entity
+public class BasicEntry implements IEntry {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String english;
     private String german;
     private String polish;
 
+
+    protected BasicEntry() {};
 
     public BasicEntry(String english, String german, String polish) {
         this.english = english;
@@ -58,9 +64,5 @@ public class BasicEntry implements IEntry {
     public String toString(){
         return "english: " + english + " german: " + german + " polish: " + polish;
     }
-
-
-
-
 
 }

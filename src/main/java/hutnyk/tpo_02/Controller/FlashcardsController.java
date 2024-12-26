@@ -4,6 +4,7 @@ import hutnyk.tpo_02.Model.BasicEntry;
 import hutnyk.tpo_02.Model.IEntry;
 import hutnyk.tpo_02.Model.IEntryFactory;
 import hutnyk.tpo_02.Repository.IEntryRepository;
+import hutnyk.tpo_02.Service.IServiceDB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
@@ -16,15 +17,17 @@ import java.util.Scanner;
 @Controller
 public class FlashcardsController {
 
-    private final IEntryRepository entryRepository;
+    private final IEntryRepository entryRepository;//TODO remove
+    private final IServiceDB serviceDB;
     private final IEntryFactory entryFactory;
     private final ApplicationContext context;
 
     @Autowired
-    public FlashcardsController(IEntryRepository entryRepository, IEntryFactory entryFactory, ApplicationContext context){
+    public FlashcardsController(IEntryRepository entryRepository, IEntryFactory entryFactory, ApplicationContext context, IServiceDB serviceDB){
         this.entryRepository = entryRepository;
         this.entryFactory = entryFactory;
         this.context = context;
+        this.serviceDB = serviceDB;
     }
 
     public void startApplication(){
@@ -33,15 +36,18 @@ public class FlashcardsController {
             System.out.println("Select an option: \n" +
                     "1. Display whole dictionary \n" +
                     "2. Add new word \n" +
-                    "3. Play a quiz \n" +
-                    "4. Exit application");
+                    "3. Delete a word \n" +
+                    "4. Update a word \n" +
+                    "5. Sort \n" +
+                    "6. Play a quiz \n" +
+                    "7. Exit application");
 
             int option = scanInt();
             Scanner scanner = new Scanner(System.in);
 
             switch (option){
                 case 1:
-                    entryRepository.displayDictionary();
+                    serviceDB.displayDictionary();
                     break;
 
                 case 2:
@@ -49,7 +55,6 @@ public class FlashcardsController {
                             "1. Yes \n" +
                             "2. No \n");
                     int override = scanInt();
-                    if(entryRepository.isBasic()){
                         System.out.println("Enter a word in three languages line by line:");
 
                         System.out.println("English:");
@@ -60,34 +65,38 @@ public class FlashcardsController {
 
                         System.out.println("Polish:");
                         String polish = scanner.next();
-                        String result = entryRepository.addWord(entryFactory.createEntry(english, german, polish), (override == 1));
+                        String result = serviceDB.addEntry(entryFactory.createEntry(english, german, polish), (override == 1));
                         System.out.println(result);
-                    }
-                    break;
 
+                    break;
                 case 3:
-                    IEntry entry = entryRepository.generateQuiz();
-                    System.out.println("Enter translation of the following word: " + entry.getEnglish());
-                    if(entry.isBasic()){
-                        Map<String, String> values = entry.getTranslations();
-                        System.out.println("german:");
-                        String german = scanner.next();
+                    System.out.println("Enter a word in english to delete it");
+                    String input = scanner.next();
+                    System.out.println(serviceDB.deleteEntry(input));
 
-                        System.out.println("polish:");
-                        String polish = scanner.next();
+//                case 6:
+//                    IEntry entry = entryRepository.generateQuiz();
+//                    System.out.println("Enter translation of the following word: " + entry.getEnglish());
+//                    if(entry.isBasic()){
+//                        Map<String, String> values = entry.getTranslations();
+//                        System.out.println("german:");
+//                        String german = scanner.next();
+//
+//                        System.out.println("polish:");
+//                        String polish = scanner.next();
+//
+//
+//                        if(values.get("german").equalsIgnoreCase(german) && values.get("polish").equalsIgnoreCase(polish)){
+//                            System.out.println("Congratulations! Answers are correct");
+//                        }else{
+//                            System.out.println("Ooops, you made a mistake, correct answers are: \n" +
+//                                    "german: " + values.get("german") + " polish: " + values.get("polish"));
+//
+//                        }
+//                    }
+//                    break;
 
-
-                        if(values.get("german").equalsIgnoreCase(german) && values.get("polish").equalsIgnoreCase(polish)){
-                            System.out.println("Congratulations! Answers are correct");
-                        }else{
-                            System.out.println("Ooops, you made a mistake, correct answers are: \n" +
-                                    "german: " + values.get("german") + " polish: " + values.get("polish"));
-
-                        }
-                    }
-                    break;
-
-                case 4:
+                case 7:
                     isRunning = false;
                     System.out.println("Exiting application...");
                     SpringApplication.exit(context, () -> 0);

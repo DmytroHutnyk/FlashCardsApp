@@ -8,10 +8,12 @@ public interface IEntry {
 
     Map<String, String> getTranslations();
 
-    void setTranslations(Map<String, String> translations);
+    void setTranslations(String english, String german, String polish);
 
     boolean isBasic();
 
     String getEnglish();
+    String getGerman();
+    String getPolish();
 
 }
