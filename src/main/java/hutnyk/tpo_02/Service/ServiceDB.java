@@ -62,4 +62,15 @@ public class ServiceDB implements  IServiceDB{
         }
     }
 
+    public String updateEntry(IEntry entry, String beforeModification){
+        return entryRepository.updateEntry(entry, beforeModification);
+    }
+
+    public boolean isPresent(String english){
+        Optional<IEntry> existingEntryDB = entryRepository.findEntryByEnglish(english);
+        if(existingEntryDB.isPresent()){
+            return true;
+        }else
+            return false;
+    }
 }

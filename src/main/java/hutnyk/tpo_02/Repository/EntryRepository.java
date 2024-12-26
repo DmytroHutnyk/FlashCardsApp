@@ -22,39 +22,47 @@ public  class EntryRepository implements IEntryRepository {
 
     @PersistenceContext
     private final EntityManager entityManager;
-    private List<IEntry> entries; // TODO Remove this at all
     private IPrinter printer;
     private final Random random = new Random();
 
-    @Value("${hutnyk.tpo_02.filename}")         //TODO to remove
-    private String filename;                    //TODO to remove
-
-    private final IReadWriteService service;    //TODO to remove
 
     @Autowired
-    public EntryRepository(IReadWriteService service, IPrinter printer, EntityManager entityManager) {
-        this.service = service;
+    public EntryRepository(IPrinter printer, EntityManager entityManager) {
         this.printer = printer;
         this.entityManager = entityManager;
     }
 
-//    @PostConstruct
-//    public void init() {                            // TODO probably to remove
-//        entries = service.readFile(filename);
-//    }
 
     @Transactional
     public void addEntry(IEntry entry){
         entityManager.persist(entry);
     }
+
     @Transactional
     public void updateEntry(IEntry entry){
         entityManager.merge(entry);
     }
+
+    @Transactional
+    public String updateEntry(IEntry newEntry, String beforeModification){
+        String query = "SELECT e FROM BasicEntry e WHERE e.english = :englishWord";
+        Optional<IEntry> selectedEntry = entityManager.createQuery(query, IEntry.class).
+                setParameter("englishWord", beforeModification).
+                getResultStream().findFirst();
+
+        if(selectedEntry.isPresent()){
+            selectedEntry.get().setTranslations(newEntry.getEnglish(), newEntry.getGerman(), newEntry.getGerman());
+            entityManager.merge(selectedEntry.get());
+            return "Word successfully updated";
+        }else {
+            return "Word does not exist";
+        }
+    }
+
     @Transactional(readOnly = true)
     public Optional<IEntry> findEntryByEnglish(String englishWord) {
         String query = "SELECT e FROM BasicEntry e WHERE e.english = :englishWord"; //TODO maybe we will do as in findAllEntries to have lose coupling
-        return entityManager.createQuery(query, IEntry.class).
+        return  entityManager.createQuery(query, IEntry.class).
                 setParameter("englishWord", englishWord).
                 getResultStream().findFirst();
     }
@@ -72,10 +80,4 @@ public  class EntryRepository implements IEntryRepository {
         entityManager.clear();
         return  rowsAffected;
     }
-
-
-
-
-
-
 }

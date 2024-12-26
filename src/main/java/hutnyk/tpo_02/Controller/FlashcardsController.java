@@ -73,7 +73,27 @@ public class FlashcardsController {
                     System.out.println("Enter a word in english to delete it");
                     String input = scanner.next();
                     System.out.println(serviceDB.deleteEntry(input));
+                    break;
+                case 4:
+                    System.out.println("Enter a word in English you would like to update:");
+                    String input1 = scanner.next();
+                    if(!serviceDB.isPresent(input1)){
+                        System.out.println("Word is not present");
+                    }else{
+                        System.out.println("Enter a word in three languages line by line:");
 
+                        System.out.println("English:");
+                        String english1 = scanner.next();
+
+                        System.out.println("German:");
+                        String german1 = scanner.next();
+
+                        System.out.println("Polish:");
+                        String polish1 = scanner.next();
+                        System.out.println(serviceDB.updateEntry(entryFactory.createEntry(english1, german1, polish1), input1));
+                    }
+
+                    break;
 //                case 6:
 //                    IEntry entry = entryRepository.generateQuiz();
 //                    System.out.println("Enter translation of the following word: " + entry.getEnglish());

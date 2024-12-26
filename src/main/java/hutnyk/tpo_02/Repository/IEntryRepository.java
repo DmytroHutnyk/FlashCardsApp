@@ -12,5 +12,6 @@ public interface IEntryRepository {
 //    boolean deleteEntryByEnglish(String english);
     Optional<IEntry> findEntryByEnglish(String english);
     void updateEntry(IEntry entry);
+    String updateEntry(IEntry entry, String beforeModification);
     int deleteEntry(String englishWord);
 }
