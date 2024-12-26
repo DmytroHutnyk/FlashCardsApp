@@ -3,7 +3,24 @@ spring:
     name: TPO_02
   profiles:
     active: LowerCase
+  datasource:
+    url: jdbc:h2:file:./data/MyTryDB
+    username: sa
+    password: haslo
+  h2:
+    console:
+      path: /my-h2-db
+  jpa:
+    hibernate:
+      ddl-auto: update
 
+    show-sql: true
 hutnyk:
   tpo_02:
     filename: "dictionary.txt"
+
+logging:
+  level:
+    org.springframework.jdbc.datasource: debug  # Logs database connection info
+    org.hibernate.sql: debug # Logs executed SQL statements
+
