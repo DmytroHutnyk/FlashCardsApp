@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -44,7 +45,13 @@ public class ServiceDB implements  IServiceDB{
     }
 
     public void displayDictionary(){
-        entryRepository.findAllEntries(BasicEntry.class); //TODO hardcoded
+        List<BasicEntry> entries = entryRepository.findAllEntries(BasicEntry.class); //TODO hardcoded
+
+        if(entries.isEmpty()){
+            System.out.println("No entries found");
+        }else{
+            entries.forEach(System.out::println);
+        }
     }
 
     public String deleteEntry(String english){
