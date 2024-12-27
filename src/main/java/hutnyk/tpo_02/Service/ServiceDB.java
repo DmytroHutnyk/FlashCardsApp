@@ -73,4 +73,8 @@ public class ServiceDB implements  IServiceDB{
         }else
             return false;
     }
+
+    public IEntry generateQuiz(){
+        return entryRepository.findRandom().orElse(null);
+    }
 }

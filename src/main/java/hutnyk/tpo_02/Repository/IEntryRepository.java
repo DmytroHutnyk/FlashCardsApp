@@ -14,4 +14,5 @@ public interface IEntryRepository {
     void updateEntry(IEntry entry);
     String updateEntry(IEntry entry, String beforeModification);
     int deleteEntry(String englishWord);
+    Optional<IEntry> findRandom();
 }

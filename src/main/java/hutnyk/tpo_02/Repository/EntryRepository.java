@@ -61,7 +61,7 @@ public  class EntryRepository implements IEntryRepository {
 
     @Transactional(readOnly = true)
     public Optional<IEntry> findEntryByEnglish(String englishWord) {
-        String query = "SELECT e FROM BasicEntry e WHERE e.english = :englishWord"; //TODO maybe we will do as in findAllEntries to have lose coupling
+        String query = "SELECT e FROM BasicEntry e WHERE e.english = :englishWord";
         return  entityManager.createQuery(query, IEntry.class).
                 setParameter("englishWord", englishWord).
                 getResultStream().findFirst();
@@ -75,9 +75,22 @@ public  class EntryRepository implements IEntryRepository {
 
     @Transactional
     public int deleteEntry(String englishWord){
-        String query = "DELETE FROM BasicEntry e WHERE e.english = :englishWord";//TODO maybe we will do as in findAllEntries to have lose coupling
+        String query = "DELETE FROM BasicEntry e WHERE e.english = :englishWord";
         int rowsAffected =  entityManager.createQuery(query).setParameter("englishWord", englishWord).executeUpdate();
         entityManager.clear();
         return  rowsAffected;
     }
+    @Transactional(readOnly = true)
+    public Optional<IEntry> findRandom(){
+        Long count = entityManager.createQuery("SELECT COUNT(e) FROM BasicEntry e", Long.class).getSingleResult();
+
+        int random = new Random().nextInt(count.intValue());
+
+        return entityManager.createQuery("SELECT e FROM BasicEntry e", IEntry.class).
+                setFirstResult(random).
+                setMaxResults(1).
+                getResultStream().
+                findFirst();
+    }
+
 }

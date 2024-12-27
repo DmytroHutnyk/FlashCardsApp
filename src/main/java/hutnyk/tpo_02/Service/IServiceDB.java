@@ -9,4 +9,5 @@ public interface IServiceDB {
    String deleteEntry(String english);
    String updateEntry(IEntry english, String beforeModification);
    public boolean isPresent(String english);
+   IEntry generateQuiz();
 }
