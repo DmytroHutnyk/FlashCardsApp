@@ -7,6 +7,7 @@ import java.util.Map;
 
 
 @Entity
+@Table(name = "basic_entry")
 public class BasicEntry implements IEntry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

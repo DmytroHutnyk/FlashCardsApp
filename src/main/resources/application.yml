@@ -4,7 +4,7 @@ spring:
   profiles:
     active: LowerCase
   datasource:
-    url: jdbc:h2:file:./data/MyTryDB
+    url: jdbc:h2:file:./data/MyTryDB;DATABASE_TO_UPPER=false
     username: sa
     password:
   h2:
@@ -12,15 +12,10 @@ spring:
       path: /my-h2-db
   jpa:
     hibernate:
-      ddl-auto: update
-
+      ddl-auto: create-drop
     show-sql: true
-hutnyk:
-  tpo_02:
-    filename: "dictionary.txt"
-
-logging:
-  level:
-    org.springframework.jdbc.datasource: debug  # Logs database connection info
-    org.hibernate.sql: debug # Logs executed SQL statements
-
+    defer-datasource-initialization: true
+  sql:
+    init:
+      data-locations: classpath:sql-data/basic_entry.sql
+      mode: always
