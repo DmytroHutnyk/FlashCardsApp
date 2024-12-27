@@ -61,9 +61,9 @@ public  class EntryRepository implements IEntryRepository {
     }
 
     @Transactional
-    public <T extends IEntry> List<T> findAllEntries(Class<T> entityClass){
-        String query = "Select e FROM " + entityClass.getSimpleName() + " e";
-        return entityManager.createQuery(query, entityClass).getResultList();
+    public  List<IEntry> findAllEntries(){
+        String query = "Select e FROM BasicEntry e";
+        return entityManager.createQuery(query, IEntry.class).getResultStream().toList();
     }
 
     @Transactional

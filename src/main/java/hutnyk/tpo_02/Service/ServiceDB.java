@@ -3,6 +3,7 @@ package hutnyk.tpo_02.Service;
 import hutnyk.tpo_02.Model.BasicEntry;
 import hutnyk.tpo_02.Model.IEntry;
 import hutnyk.tpo_02.Repository.IEntryRepository;
+import hutnyk.tpo_02.Service.Printer.IPrinter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -12,10 +13,12 @@ import java.util.Optional;
 public class ServiceDB implements  IServiceDB{
 
     private final IEntryRepository entryRepository;
+    private final IPrinter printer;
 
     @Autowired
-    public ServiceDB(IEntryRepository entryRepository){
+    public ServiceDB(IEntryRepository entryRepository, IPrinter printer){
         this.entryRepository = entryRepository;
+        this.printer = printer;
     }
 
     public String addEntry(IEntry entry, boolean override){
@@ -42,12 +45,12 @@ public class ServiceDB implements  IServiceDB{
     }
 
     public void displayDictionary(){
-        List<BasicEntry> entries = entryRepository.findAllEntries(BasicEntry.class);
+        List<IEntry> entries = entryRepository.findAllEntries();
 
         if(entries.isEmpty()){
             System.out.println("No entries found");
         }else{
-            entries.forEach(System.out::println);
+            printer.printDictionary(entries);
         }
     }
 

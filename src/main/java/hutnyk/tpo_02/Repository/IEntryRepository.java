@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public interface IEntryRepository {
     void addEntry(IEntry entry);
-    <T extends IEntry> List<T> findAllEntries(Class<T> entityClass);
+    List<IEntry> findAllEntries();
     Optional<IEntry> findEntryByEnglish(String english);
     void updateEntry(IEntry entry);
     String updateEntry(IEntry entry, String beforeModification);
