@@ -5,11 +5,8 @@ import hutnyk.tpo_02.Model.IEntry;
 import hutnyk.tpo_02.Repository.IEntryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-
 import java.util.List;
 import java.util.Optional;
-
 
 @Service
 public class ServiceDB implements  IServiceDB{
@@ -29,7 +26,7 @@ public class ServiceDB implements  IServiceDB{
         existingEntryDB.ifPresentOrElse(
                 existingEntry -> {
                     if(override){
-                        existingEntry.setTranslations(entry.getEnglish(), entry.getGerman(), entry.getPolish());//TODO high coupling
+                        existingEntry.setTranslations(entry.getEnglish(), entry.getGerman(), entry.getPolish());
                         entryRepository.updateEntry(existingEntry);
                         result[0] = "Word successfully overridden";
                     }
@@ -45,7 +42,7 @@ public class ServiceDB implements  IServiceDB{
     }
 
     public void displayDictionary(){
-        List<BasicEntry> entries = entryRepository.findAllEntries(BasicEntry.class); //TODO hardcoded
+        List<BasicEntry> entries = entryRepository.findAllEntries(BasicEntry.class);
 
         if(entries.isEmpty()){
             System.out.println("No entries found");

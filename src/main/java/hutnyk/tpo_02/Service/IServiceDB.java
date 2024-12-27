@@ -8,6 +8,6 @@ public interface IServiceDB {
    void displayDictionary();
    String deleteEntry(String english);
    String updateEntry(IEntry english, String beforeModification);
-   public boolean isPresent(String english);
+   boolean isPresent(String english);
    IEntry generateQuiz();
 }

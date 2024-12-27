@@ -5,15 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 public interface IEntry {
-
     Map<String, String> getTranslations();
-
     void setTranslations(String english, String german, String polish);
-
-    boolean isBasic();
-
     String getEnglish();
     String getGerman();
     String getPolish();
-
 }

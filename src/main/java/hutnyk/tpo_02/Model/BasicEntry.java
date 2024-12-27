@@ -1,10 +1,8 @@
 package hutnyk.tpo_02.Model;
 
 import jakarta.persistence.*;
-
 import java.util.HashMap;
 import java.util.Map;
-
 
 @Entity
 @Table(name = "basic_entry")
@@ -16,7 +14,6 @@ public class BasicEntry implements IEntry {
     private String german;
     private String polish;
 
-
     protected BasicEntry() {};
 
     public BasicEntry(String english, String german, String polish) {
@@ -24,7 +21,6 @@ public class BasicEntry implements IEntry {
         this.german = german;
         this.polish = polish;
     }
-
 
     public Map<String, String> getTranslations(){
         Map<String, String> translations = new HashMap<>();
@@ -65,5 +61,4 @@ public class BasicEntry implements IEntry {
     public String toString(){
         return "english: " + english + " german: " + german + " polish: " + polish;
     }
-
 }

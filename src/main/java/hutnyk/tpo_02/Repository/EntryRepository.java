@@ -1,17 +1,12 @@
 package hutnyk.tpo_02.Repository;
 
 import hutnyk.tpo_02.Model.IEntry;
-import hutnyk.tpo_02.Service.IReadWriteService;
 import hutnyk.tpo_02.Service.Printer.IPrinter;
-import jakarta.annotation.PostConstruct;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.Table;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 
 import java.util.List;
 import java.util.Optional;
@@ -25,13 +20,11 @@ public  class EntryRepository implements IEntryRepository {
     private IPrinter printer;
     private final Random random = new Random();
 
-
     @Autowired
     public EntryRepository(IPrinter printer, EntityManager entityManager) {
         this.printer = printer;
         this.entityManager = entityManager;
     }
-
 
     @Transactional
     public void addEntry(IEntry entry){
@@ -80,6 +73,7 @@ public  class EntryRepository implements IEntryRepository {
         entityManager.clear();
         return  rowsAffected;
     }
+
     @Transactional(readOnly = true)
     public Optional<IEntry> findRandom(){
         Long count = entityManager.createQuery("SELECT COUNT(e) FROM BasicEntry e", Long.class).getSingleResult();
@@ -92,5 +86,4 @@ public  class EntryRepository implements IEntryRepository {
                 getResultStream().
                 findFirst();
     }
-
 }
