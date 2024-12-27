@@ -1,5 +1,5 @@
 
-# Flashcards Application
+# Flashcards Application based on Entity Manager
 
 ## Description
 A Spring Boot console application for learning and testing translations in multiple languages (English, German, and Polish) with the ability for extension. Data is read from a file with the option to add new translations.
