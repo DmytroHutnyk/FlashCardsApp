@@ -14,7 +14,7 @@ public class BasicEntry implements IEntry {
     private String german;
     private String polish;
 
-    protected BasicEntry() {};
+    public BasicEntry() {};
 
     public BasicEntry(String english, String german, String polish) {
         this.english = english;

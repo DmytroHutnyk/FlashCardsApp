@@ -1,8 +1,7 @@
 package hutnyk.tpo_02.Controller;
 
-import hutnyk.tpo_02.Model.IEntry;
+import hutnyk.tpo_02.Model.BasicEntry;
 import hutnyk.tpo_02.Model.IEntryFactory;
-import hutnyk.tpo_02.Repository.IEntryRepository;
 import hutnyk.tpo_02.Service.IServiceDB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -92,7 +91,7 @@ public class FlashcardsController {
                     break;
 
                 case 5:
-                    IEntry entry = serviceDB.generateQuiz();
+                    BasicEntry entry = serviceDB.generateQuiz();
                     if(entry != null){
                         System.out.println("Enter translation of the following word: " + entry.getEnglish());
 

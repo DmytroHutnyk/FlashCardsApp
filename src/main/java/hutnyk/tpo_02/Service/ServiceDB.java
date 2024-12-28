@@ -21,31 +21,34 @@ public class ServiceDB implements  IServiceDB{
         this.printer = printer;
     }
 
-    public String addEntry(IEntry entry, boolean override){
-        Optional<IEntry> existingEntryDB = entryRepository.findEntryByEnglish(entry.getEnglish());
+    public String addEntry(IEntry entry, boolean override) {
+        Optional<BasicEntry> existingEntryDB = entryRepository.findByEnglish(entry.getEnglish());
 
         final String[] result = new String[1];
 
         existingEntryDB.ifPresentOrElse(
                 existingEntry -> {
-                    if(override){
+                    if (override) {
                         existingEntry.setTranslations(entry.getEnglish(), entry.getGerman(), entry.getPolish());
-                        entryRepository.updateEntry(existingEntry);
+                        entryRepository.save(existingEntry);
                         result[0] = "Word successfully overridden";
+                    } else {
+                        result[0] = "Word already exists and was not overridden";
                     }
-
-                }, () -> {
-                    entryRepository.addEntry(entry);
+                },
+                () -> {
+                    BasicEntry newEntry = new BasicEntry();
+                    newEntry.setTranslations(entry.getEnglish(), entry.getGerman(), entry.getPolish());
+                    entryRepository.save(newEntry);
                     result[0] = "Word successfully added";
-
                 }
         );
-        return result[0];
 
+        return result[0];
     }
 
     public void displayDictionary(){
-        List<IEntry> entries = entryRepository.findAllEntries();
+        List<BasicEntry> entries = entryRepository.findAll();
 
         if(entries.isEmpty()){
             System.out.println("No entries found");
@@ -55,26 +58,37 @@ public class ServiceDB implements  IServiceDB{
     }
 
     public String deleteEntry(String english){
-        if ( entryRepository.deleteEntry(english) > 0) {
+        if ( entryRepository.deleteByEnglish(english) > 0) {
             return "Entry successfully deleted";
         } else {
             return "No records found with English word: " + english;
         }
     }
 
-    public String updateEntry(IEntry entry, String beforeModification){
-        return entryRepository.updateEntry(entry, beforeModification);
+
+    public String updateEntry(IEntry newEntry, String beforeModification) {
+        Optional<BasicEntry> selectedEntry = entryRepository.findByEnglish(beforeModification);
+
+        if (selectedEntry.isPresent()) {
+            BasicEntry entryToUpdate = selectedEntry.get();
+            entryToUpdate.setTranslations(newEntry.getEnglish(), newEntry.getGerman(), newEntry.getPolish());
+
+            entryRepository.save(entryToUpdate);
+            return "Word successfully updated";
+        } else {
+            return "Word does not exist";
+        }
     }
 
     public boolean isPresent(String english){
-        Optional<IEntry> existingEntryDB = entryRepository.findEntryByEnglish(english);
+        Optional<BasicEntry> existingEntryDB = entryRepository.findByEnglish(english);
         if(existingEntryDB.isPresent()){
             return true;
         }else
             return false;
     }
 
-    public IEntry generateQuiz(){
+    public BasicEntry generateQuiz(){
         return entryRepository.findRandom().orElse(null);
     }
 }
