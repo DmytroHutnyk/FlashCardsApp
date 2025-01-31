@@ -4,7 +4,7 @@
 ## Description
 A Spring Boot console application for learning and testing translations in multiple languages (English, German, and Polish) with the ability for future extension. Data is read from a file. 
 
-Note: `v1` and `v2` branches are extensions of the application.
+Note: `v1` and `v2` branches are extensions of the application. Possibility to Update and Delete a word is added.
 - `v1` is implemented based on Entity Manager.
 - `v2` is based on Spring Data JPA.
 
@@ -44,7 +44,17 @@ Open a terminal and navigate to the root directory of your project (where the `b
 cd /path/to/your/project
 ```
 
-### 3. Build the Project
+### 3. Switch to the v1 or v2 Branch (Optionally)
+
+```bash
+git checkout v1
+```
+
+```bash
+git checkout v2
+```
+
+### 4. Build the Project
 Use the Gradle wrapper to build the application:
 
 - **On Linux/Mac**:
