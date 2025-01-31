@@ -1,4 +1,4 @@
-package hutnyk.tpo_02.Model;
+package flashCards.Model;
 
 public class BasicEntryDTO {
     private String english;

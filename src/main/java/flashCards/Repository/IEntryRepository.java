@@ -1,6 +1,7 @@
-package hutnyk.tpo_02.Repository;
+package flashCards.Repository;
 
-import hutnyk.tpo_02.Model.IEntry;
+import flashCards.Model.IEntry;
+
 import java.util.List;
 import java.util.Optional;
 

@@ -1,9 +1,8 @@
-package hutnyk.tpo_02.Service;
+package flashCards.Service;
 
-import hutnyk.tpo_02.Model.BasicEntry;
-import hutnyk.tpo_02.Model.IEntry;
-import hutnyk.tpo_02.Repository.IEntryRepository;
-import hutnyk.tpo_02.Service.Printer.IPrinter;
+import flashCards.Model.IEntry;
+import flashCards.Repository.IEntryRepository;
+import flashCards.Service.Printer.IPrinter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

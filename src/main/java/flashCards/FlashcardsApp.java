@@ -1,6 +1,6 @@
-package hutnyk.tpo_02;
+package flashCards;
 
-import hutnyk.tpo_02.Controller.FlashcardsController;
+import flashCards.Controller.FlashcardsController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;

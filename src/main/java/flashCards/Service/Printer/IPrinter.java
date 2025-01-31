@@ -1,6 +1,6 @@
-package hutnyk.tpo_02.Service.Printer;
+package flashCards.Service.Printer;
 
-import hutnyk.tpo_02.Model.IEntry;
+import flashCards.Model.IEntry;
 
 import java.util.List;
 

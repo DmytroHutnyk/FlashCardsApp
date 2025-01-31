@@ -1,9 +1,8 @@
-package hutnyk.tpo_02.Controller;
+package flashCards.Controller;
 
-import hutnyk.tpo_02.Model.IEntry;
-import hutnyk.tpo_02.Model.IEntryFactory;
-import hutnyk.tpo_02.Repository.IEntryRepository;
-import hutnyk.tpo_02.Service.IServiceDB;
+import flashCards.Model.IEntry;
+import flashCards.Model.IEntryFactory;
+import flashCards.Service.IServiceDB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;

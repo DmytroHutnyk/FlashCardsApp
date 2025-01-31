@@ -1,7 +1,7 @@
-package hutnyk.tpo_02.Repository;
+package flashCards.Repository;
 
-import hutnyk.tpo_02.Model.IEntry;
-import hutnyk.tpo_02.Service.Printer.IPrinter;
+import flashCards.Model.IEntry;
+import flashCards.Service.Printer.IPrinter;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
