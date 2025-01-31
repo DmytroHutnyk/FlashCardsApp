@@ -1,6 +1,6 @@
-package hutnyk.tpo_02.Service.Printer;
+package flashCards.Service.Printer;
 
-import hutnyk.tpo_02.Model.BasicEntry;
+import flashCards.Model.BasicEntry;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import java.util.List;

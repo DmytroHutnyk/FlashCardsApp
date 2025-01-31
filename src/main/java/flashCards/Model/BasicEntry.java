@@ -1,4 +1,4 @@
-package hutnyk.tpo_02.Model;
+package flashCards.Model;
 
 import jakarta.persistence.*;
 import java.util.HashMap;

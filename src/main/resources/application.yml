@@ -1,6 +1,6 @@
 spring:
   application:
-    name: TPO_02
+    name: FlashCardsApp
   profiles:
     active: UpperCase
   datasource:

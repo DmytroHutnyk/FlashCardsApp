@@ -1,6 +1,6 @@
-package hutnyk.tpo_02.Repository;
+package flashCards.Repository;
 
-import hutnyk.tpo_02.Model.BasicEntry;
+import flashCards.Model.BasicEntry;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
