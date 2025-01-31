@@ -58,7 +58,7 @@ public class ServiceDB implements  IServiceDB{
         if ( entryRepository.deleteEntry(english) > 0) {
             return "Entry successfully deleted";
         } else {
-            return "No records found with English word: " + english;
+            return "No records has been found with English word: " + english;
         }
     }
 
