@@ -42,7 +42,6 @@ cd /path/to/your/project
 ```
 
 ### 3. Switch to the v1 Branch
-Use the Gradle wrapper to build the application:
 
 ```bash
 git checkout v1
