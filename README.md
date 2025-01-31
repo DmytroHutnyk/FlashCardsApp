@@ -1,5 +1,5 @@
 
-# Flashcards Application based on Entity Manager
+# Flashcards Command Line Interface Application based on Entity Manager
 
 ## Description
 A Spring Boot console application for learning and testing translations in multiple languages (English, German, and Polish) with the ability for extension. Data is read from a H2 Database. Two functionalities were added: Delete and Update a word.
@@ -14,8 +14,10 @@ You can specify these formats by activating the corresponding Spring profile whe
 ## Technologies Used
 - **Java 23**
 - **Spring Boot**
+- **Entity Manager**
 - **Gradle**
-- 
+- **H2 Database**
+
 ## Prerequisites
 - **Java Development Kit (JDK)** 23.
 - **Gradle** for building and running the application.
