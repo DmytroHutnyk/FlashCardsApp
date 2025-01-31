@@ -1,8 +1,6 @@
-package hutnyk.tpo_02.Model;
+package flashCards.Model;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class BasicEntry implements IEntry {

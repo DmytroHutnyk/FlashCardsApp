@@ -1,12 +1,11 @@
-package hutnyk.tpo_02.Repository;
+package flashCards.Repository;
 
-import hutnyk.tpo_02.Model.IEntry;
-import hutnyk.tpo_02.Service.IReadWriteService;
-import hutnyk.tpo_02.Service.Printer.IPrinter;
+import flashCards.Service.IReadWriteService;
+import flashCards.Service.Printer.IPrinter;
+import flashCards.Model.IEntry;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,10 +14,10 @@ import java.util.Random;
 @Repository
 public class EntryRepository implements IEntryRepository {
     private List<IEntry> entries;
-    private IPrinter printer;
+    private final IPrinter printer;
     private final Random random = new Random();
 
-    @Value("${hutnyk.tpo_02.filename}")
+    @Value("${flashCards.filename}")
     private String filename;
 
     private final IReadWriteService service;

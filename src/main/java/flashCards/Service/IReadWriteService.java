@@ -1,7 +1,7 @@
-package hutnyk.tpo_02.Service;
+package flashCards.Service;
 
 
-import hutnyk.tpo_02.Model.IEntry;
+import flashCards.Model.IEntry;
 
 import java.util.List;
 

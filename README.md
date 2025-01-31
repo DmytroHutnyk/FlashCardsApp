@@ -2,18 +2,12 @@
 # Flashcards Application
 
 ## Description
-A Spring Boot console application for learning and testing translations in multiple languages (English, German, and Polish) with the ability for extension. Data is read from a file with the option to add new translations.
+A Spring Boot console application for learning and testing translations in multiple languages (English, German, and Polish) with the ability for future extension. Data is read from a file. Note v1 and v2 branches are extension of an application. v1 is implemented based on Entity Manager, v2 based on Spring Data JPA.
 
 ## Features
 - **Dictionary Management**: Add and display words in multiple languages.
 - **Quiz Mode**: Generate random quizzes to test your language skills.
 - **Profiles Support**: Allows displaying words in different formats (`Original`, `UpperCase`, and `LowerCase`).
-
-## Translation Formats
-The application supports three formats for displaying translations based on the active profile:
-- **Original**: Displays translations exactly as they were stored by the user (default behavior).
-- **UpperCase**: Converts all translations to uppercase letters.
-- **LowerCase**: Converts all translations to lowercase letters.
 
 You can specify these formats by activating the corresponding Spring profile when starting the application.
 

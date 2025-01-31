@@ -1,9 +1,8 @@
 spring:
   application:
-    name: TPO_02
+    name: FlashCards
   profiles:
-    active: LowerCase
+    active: UpperCase
 
-hutnyk:
-  tpo_02:
+flashCards:
     filename: "dictionary.txt"

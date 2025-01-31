@@ -1,8 +1,6 @@
-package hutnyk.tpo_02.Repository;
+package flashCards.Repository;
 
-import hutnyk.tpo_02.Model.IEntry;
-
-import java.util.Map;
+import flashCards.Model.IEntry;
 
 public interface IEntryRepository {
     String addWord(IEntry entry, boolean override);

@@ -1,4 +1,4 @@
-package hutnyk.tpo_02.Model;
+package flashCards.Model;
 
 import java.util.ArrayList;
 import java.util.List;

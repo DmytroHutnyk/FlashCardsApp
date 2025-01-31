@@ -1,14 +1,12 @@
-package hutnyk.tpo_02.Controller;
+package flashCards.Controller;
 
-import hutnyk.tpo_02.Model.BasicEntry;
-import hutnyk.tpo_02.Model.IEntry;
-import hutnyk.tpo_02.Model.IEntryFactory;
-import hutnyk.tpo_02.Repository.IEntryRepository;
+import flashCards.Model.IEntry;
+import flashCards.Model.IEntryFactory;
+import flashCards.Repository.IEntryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
-
 import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
