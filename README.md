@@ -14,7 +14,7 @@ You can specify these formats by activating the corresponding Spring profile whe
 ## Technologies Used
 - **Java 23**
 - **Spring Boot**
-- **HSpring Data JPA**
+- **Spring Data JPA**
 - **Gradle**
 - **H2 Database**
 
