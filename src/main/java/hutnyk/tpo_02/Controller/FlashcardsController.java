@@ -65,7 +65,7 @@ public class FlashcardsController {
                     break;
 
                 case 3:
-                    System.out.println("Enter a word in english to delete it");
+                    System.out.println("Enter a word in English to delete it");
                     String input = scanner.next();
                     System.out.println(serviceDB.deleteEntry(input));
                     break;
@@ -74,7 +74,7 @@ public class FlashcardsController {
                     System.out.println("Enter a word in English you would like to update:");
                     String input1 = scanner.next();
                     if(!serviceDB.isPresent(input1)){
-                        System.out.println("Word is not present");
+                        System.out.println("No records have been found with English word:"  + input1);
                     }else{
                         System.out.println("Enter a word in three languages line by line:");
 
@@ -95,17 +95,17 @@ public class FlashcardsController {
                     if(entry != null){
                         System.out.println("Enter translation of the following word: " + entry.getEnglish());
 
-                        System.out.println("german:");
+                        System.out.println("German:");
                         String german2 = scanner.next();
 
-                        System.out.println("polish:");
+                        System.out.println("Polish:");
                         String polish2 = scanner.next();
 
                         if(entry.getGerman().equalsIgnoreCase(german2) && entry.getPolish().equalsIgnoreCase(polish2)){
                             System.out.println("Congratulations! Answers are correct");
                         }else{
                             System.out.println("Ooops, you made a mistake, correct answers are: \n" +
-                                    "german: " + entry.getGerman() + " polish: " + entry.getPolish());
+                                    "German: " + entry.getGerman() + " Polish: " + entry.getPolish());
                         }
                     }else
                         System.out.println("Something went wrong :(");

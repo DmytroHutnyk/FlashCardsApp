@@ -2,7 +2,7 @@ spring:
   application:
     name: TPO_02
   profiles:
-    active: LowerCase
+    active: UpperCase
   datasource:
     url: jdbc:h2:file:./data/MyTryDB;DATABASE_TO_UPPER=false
     username: sa
@@ -13,7 +13,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create-drop
-    show-sql: true
+#    show-sql: true
     defer-datasource-initialization: true
   sql:
     init:
