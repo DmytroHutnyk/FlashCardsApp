@@ -50,7 +50,7 @@ git checkout v1
 ### 4. Build the Project
 Use the Gradle wrapper to build the application:
 
-- **macOS/Linux & PowerShell:c**:
+- **macOS/Linux & PowerShell:**:
   ```bash
   ./gradlew build
   ```
