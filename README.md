@@ -50,11 +50,11 @@ git checkout v1
 ### 4. Build the Project
 Use the Gradle wrapper to build the application:
 
-- **On Linux/Mac**:
+- **macOS/Linux & PowerShell:c**:
   ```bash
   ./gradlew build
   ```
-- **On Windows**:
+- **Windows (CMD only):**:
   ```bash
   gradlew build
   ```
@@ -66,11 +66,11 @@ This command will:
 
 Verify that the JAR file is created:
 
-- **On Linux/Mac**:
+- **macOS/Linux & PowerShell:**
   ```bash
   ls build/libs
   ```
-- **On Windows**:
+- **Windows (CMD only):**
   ```bash
   dir build\libs
   ```
@@ -80,28 +80,43 @@ You should see a file like this:
 ```
 FlashCards-0.0.1-SNAPSHOT.jar
 ```
-
 ### 5. Run the Application
 Start the application using the `java -jar` command:
 
-```bash
-java -jar build/libs/FlashCards-0.0.1-SNAPSHOT.jar
-```
+  ```bash
+  java -jar build/libs/FlashCards-0.0.1-SNAPSHOT.jar
+  ```
+
 
 ### 6. Optional: Run with a Specific Profile
 To run the application with a specific Spring Profile and display translations in a particular format, use:
 
-- **Original**:
+### **Original**:
+
+- **macOS/Linux & PowerShell:**
+  ```bash
+  java "-Dspring.profiles.active=Original" -jar build/libs/FlashCards-0.0.1-SNAPSHOT.jar
+  ```
+- **Windows (CMD only):**
   ```bash
   java -Dspring.profiles.active=Original -jar build/libs/FlashCards-0.0.1-SNAPSHOT.jar
   ```
 
-- **UpperCase  (default)**:
+### **UpperCase  (default)**:
+- **macOS/Linux & PowerShell:**
+  ```bash
+  java "-Dspring.profiles.active=UpperCase" -jar build/libs/FlashCards-0.0.1-SNAPSHOT.jar
+  ```
+- **Windows (CMD only):**
   ```bash
   java -Dspring.profiles.active=UpperCase -jar build/libs/FlashCards-0.0.1-SNAPSHOT.jar
   ```
-
-- **LowerCase**:
+###  **LowerCase**:
+- **macOS/Linux & PowerShell:**
+  ```bash
+  java "-Dspring.profiles.active=LowerCase" -jar build/libs/FlashCards-0.0.1-SNAPSHOT.jar
+  ```
+- **Windows (CMD only):**
   ```bash
   java -Dspring.profiles.active=LowerCase -jar build/libs/FlashCards-0.0.1-SNAPSHOT.jar
   ```
