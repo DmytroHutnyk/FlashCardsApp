@@ -50,7 +50,7 @@ git checkout v1
 ### 4. Build the Project
 Use the Gradle wrapper to build the application:
 
-- **macOS/Linux & PowerShell:**:
+- **macOS/Linux & Windows(PowerShell):**:
   ```bash
   ./gradlew build
   ```
@@ -66,7 +66,7 @@ This command will:
 
 Verify that the JAR file is created:
 
-- **macOS/Linux & PowerShell:**
+- **macOS/Linux & Windows(PowerShell):**
   ```bash
   ls build/libs
   ```
@@ -93,7 +93,7 @@ To run the application with a specific Spring Profile and display translations i
 
 ### **Original**:
 
-- **macOS/Linux & PowerShell:**
+- **macOS/Linux & Windows(PowerShell):**
   ```bash
   java "-Dspring.profiles.active=Original" -jar build/libs/FlashCards-0.0.1-SNAPSHOT.jar
   ```
@@ -103,7 +103,7 @@ To run the application with a specific Spring Profile and display translations i
   ```
 
 ### **UpperCase  (default)**:
-- **macOS/Linux & PowerShell:**
+- **macOS/Linux & Windows(PowerShell):**
   ```bash
   java "-Dspring.profiles.active=UpperCase" -jar build/libs/FlashCards-0.0.1-SNAPSHOT.jar
   ```
@@ -112,7 +112,7 @@ To run the application with a specific Spring Profile and display translations i
   java -Dspring.profiles.active=UpperCase -jar build/libs/FlashCards-0.0.1-SNAPSHOT.jar
   ```
 ###  **LowerCase**:
-- **macOS/Linux & PowerShell:**
+- **macOS/Linux & Windows(PowerShell):**
   ```bash
   java "-Dspring.profiles.active=LowerCase" -jar build/libs/FlashCards-0.0.1-SNAPSHOT.jar
   ```
